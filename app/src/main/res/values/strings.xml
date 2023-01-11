@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EcommerceDraft</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="get_started">Get Started</string>
+    <string name="onboarding">Shoe Addict is an Ecommerce App for Shoes and Sneakers enthusiast</string>
+</resources>
