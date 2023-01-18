@@ -1,5 +1,7 @@
 package com.example.ecommercedraft;
 
+import static com.example.ecommercedraft.BottomNavigationActivity.DATABASE_URL;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -51,7 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
 
                             User user = new User("null", "null", email);
-                            FirebaseDatabase.getInstance("https://shoeaddict-79b6a-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users")
+                            FirebaseDatabase.getInstance(DATABASE_URL).getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override

@@ -1,5 +1,7 @@
 package com.example.ecommercedraft.fragment;
 
+import static com.example.ecommercedraft.BottomNavigationActivity.DATABASE_URL;
+
 import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.os.Bundle;
@@ -97,7 +99,7 @@ public class ProfileFragment extends Fragment {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-        reference = FirebaseDatabase.getInstance("https://shoeaddict-79b6a-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users").child(user.getUid());
+        reference = FirebaseDatabase.getInstance(DATABASE_URL).getReference("Users").child(user.getUid());
 
 
         ValueEventListener dataListener = new ValueEventListener() {
