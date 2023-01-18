@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText emailEdit, passwordEdit;
@@ -48,11 +49,27 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(getApplicationContext(),"Create Successful",Toast.LENGTH_SHORT).show();
+
+                            User user = new User("null", "null", email);
+                            FirebaseDatabase.getInstance("https://shoeaddict-79b6a-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if(task.isSuccessful()){
+                                                Toast.makeText(getApplicationContext(),"data saved",Toast.LENGTH_LONG).show();
+
+                                            }else {
+                                                Toast.makeText(getApplicationContext(),"data not made",Toast.LENGTH_LONG).show();
+                                            }
+                                        }
+                                    });
+
+                            //Toast.makeText(getApplicationContext(),"Create Successful",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(RegisterActivity.this, BottomNavigationActivity.class);
                             startActivity(intent);
                         }else{
-                            Toast.makeText(getApplicationContext(),"Create Unsuccessful",Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext(),"Create Unsuccessful",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
