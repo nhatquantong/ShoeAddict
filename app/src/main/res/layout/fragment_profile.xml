@@ -7,9 +7,7 @@
     android:padding="25dp"
     tools:context=".fragment.HomeFragment"
     >
-    <shape>
-        
-    </shape>
+
 
     <TextView
         android:id="@+id/textView6"
