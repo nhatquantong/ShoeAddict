@@ -41,7 +41,7 @@ public class BottomNavigationActivity extends AppCompatActivity {
     ProfileFragment profileFragment = new ProfileFragment();
 
     //Database url for write and read from realtime database
-    public static final String DATABASE_URL = "https://shoeaddict-79b6a-default-rtdb.asia-southeast1.firebasedatabase.app/";
+    public static final String DATABASE_URL = "https://ecommercedraft-default-rtdb.firebaseio.com";
 
 
     @Override
