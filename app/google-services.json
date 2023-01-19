@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "859519784212",
+    "project_id": "shoeaddict-79b6a",
+    "storage_bucket": "shoeaddict-79b6a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:859519784212:android:606913295eb76ec69a9e01",
+        "android_client_info": {
+          "package_name": "com.example.ecommercedraft"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "859519784212-p8fqau81bvqdec3dnkra76mru3nnaljd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ecommercedraft",
+            "certificate_hash": "6b35fc6112a3688a6ea422da650ad957297ba629"
+          }
+        },
+        {
+          "client_id": "859519784212-ne9ukd5bkf8ta7tg388p448gi1s06bi4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0xdt_wp2XuKjjLzKdqBCkZDoc6NNWElU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "859519784212-ne9ukd5bkf8ta7tg388p448gi1s06bi4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
