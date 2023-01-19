@@ -3,6 +3,7 @@ package com.example.ecommercedraft.fragment;
 import static com.example.ecommercedraft.BottomNavigationActivity.DATABASE_URL;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -14,11 +15,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ecommercedraft.BottomNavigationActivity;
+import com.example.ecommercedraft.LoginActivity;
 import com.example.ecommercedraft.R;
+import com.example.ecommercedraft.RegisterActivity;
 import com.example.ecommercedraft.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -53,6 +57,7 @@ public class ProfileFragment extends Fragment {
     private DatabaseReference reference;
     private String userid;
     private TextView name, email, status;
+    private Button bSignout;
 
 
 
@@ -131,6 +136,24 @@ public class ProfileFragment extends Fragment {
         name = view.findViewById(R.id.tname);
         email = view.findViewById(R.id.temail);
         status = view.findViewById(R.id.tstatus);
+        bSignout = view.findViewById(R.id.signout);
+
+        bSignout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signOut();
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
+
+    public void signOut(){
+        // [START auth_sign_out]
+        FirebaseAuth.getInstance().signOut();
+        // [END auth_sign_out]
+    }
+
 }
