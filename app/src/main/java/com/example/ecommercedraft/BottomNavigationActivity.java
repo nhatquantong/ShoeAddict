@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ecommercedraft.fragment.CartFragment;
@@ -15,10 +16,17 @@ import com.example.ecommercedraft.fragment.HomeFragment;
 import com.example.ecommercedraft.fragment.NotificationFragment;
 import com.example.ecommercedraft.fragment.ProfileFragment;
 import com.example.ecommercedraft.fragment.WishListFragment;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class BottomNavigationActivity extends AppCompatActivity {
 
@@ -32,7 +40,8 @@ public class BottomNavigationActivity extends AppCompatActivity {
     NotificationFragment notificationFragment = new NotificationFragment();
     ProfileFragment profileFragment = new ProfileFragment();
 
-
+    //Database url for write and read from realtime database
+    public static final String DATABASE_URL = "https://shoeaddict-79b6a-default-rtdb.asia-southeast1.firebasedatabase.app/";
 
 
     @Override
@@ -49,6 +58,8 @@ public class BottomNavigationActivity extends AppCompatActivity {
 //            Intent intent = new Intent(BottomNavigationActivity.this,LoginActivity.class);
 //            startActivity(intent);
 //        });
+
+
 
         navView = findViewById(R.id.bottom_nav);
 //        setupViewPager();
@@ -75,6 +86,8 @@ public class BottomNavigationActivity extends AppCompatActivity {
                return false;
            }
        });
+
+
 
     }
 
